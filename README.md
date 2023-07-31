@@ -34,6 +34,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-If you have any questions, suggestions, or issues, please feel free to contact us at [your_email@example.com](mailto:your_email@example.com).
+If you have any questions, suggestions, or issues, please feel free to contact us at evergreenunderground.com.
 
 Enjoy generating secure passwords with the Password Generator!
