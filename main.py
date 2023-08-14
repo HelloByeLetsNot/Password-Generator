@@ -1,6 +1,7 @@
 import tkinter as tk
 import random
 import string
+import webbrowser
 
 def generate_password(length=12, use_uppercase=True, use_digits=True, use_special_chars=True):
     characters = string.ascii_lowercase
@@ -23,32 +24,39 @@ def generate_button_click():
     password = generate_password(length, use_uppercase, use_digits, use_special_chars)
     password_var.set(password)
 
+def rick_roll():
+    webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+
 # Create the main window
 root = tk.Tk()
 root.title("HelloBye - Password Generator")
+root.geometry("400x400") 
+root.configure(bg="#f5f5f5")
 
-# Create and place widgets
-tk.Label(root, text="Password Length:").pack()
+# Variables
 length_var = tk.StringVar(value="12")
-length_entry = tk.Entry(root, textvariable=length_var)
-length_entry.pack()
-
 uppercase_var = tk.BooleanVar(value=True)
-tk.Checkbutton(root, text="Include Uppercase Letters", variable=uppercase_var).pack()
-
 digits_var = tk.BooleanVar(value=True)
-tk.Checkbutton(root, text="Include Digits", variable=digits_var).pack()
-
 special_chars_var = tk.BooleanVar(value=True)
-tk.Checkbutton(root, text="Include Special Characters", variable=special_chars_var).pack()
-
-generate_button = tk.Button(root, text="Generate Password", command=generate_button_click)
-generate_button.pack()
-
 password_var = tk.StringVar()
 password_var.set("Your generated password will appear here.")
-password_label = tk.Label(root, textvariable=password_var, wraplength=300)
-password_label.pack()
+
+# Create and place widgets
+tk.Label(root, text="Password Length:", bg="#f5f5f5", fg="#333333").pack(pady=5)
+length_entry = tk.Entry(root, textvariable=length_var)
+length_entry.pack(pady=5)
+tk.Checkbutton(root, text="Include Uppercase Letters", variable=uppercase_var, bg="#f5f5f5", fg="#333333").pack(pady=5)
+tk.Checkbutton(root, text="Include Digits", variable=digits_var, bg="#f5f5f5", fg="#333333").pack(pady=5)
+tk.Checkbutton(root, text="Include Special Characters", variable=special_chars_var, bg="#f5f5f5", fg="#333333").pack(pady=5)
+
+generate_button = tk.Button(root, text="Generate Password", command=generate_button_click, bg="#007AFF", fg="white", padx=20, pady=10)
+generate_button.pack(pady=10)
+
+password_label = tk.Label(root, textvariable=password_var, wraplength=300, bg="#f5f5f5", fg="#333333")
+password_label.pack(pady=10)
+
+rick_roll_button = tk.Button(root, text="Surprise!", command=rick_roll, bg="#007AFF", fg="white", padx=20, pady=10)
+rick_roll_button.pack(pady=20)
 
 # Start the main event loop
 root.mainloop()
